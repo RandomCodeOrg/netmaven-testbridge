@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{8CCF0F62-089F-42B4-A28D-51B383F60988}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>RandomCodeOrg.NetMaven.TestBridge</RootNamespace>
+    <AssemblyName>NetMavenTestbridge</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <Commandlineparameters>--selftest -X</Commandlineparameters>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Externalconsole>true</Externalconsole>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="src\main\cs\TerminationException.cs" />
+    <Compile Include="src\main\cs\Data\TestConfig.cs" />
+    <Compile Include="src\main\cs\SelfTest.cs" />
+    <Compile Include="src\main\cs\Abstraction\TestPhase.cs" />
+    <Compile Include="src\main\cs\Data\ITestLog.cs" />
+    <Compile Include="src\main\cs\Abstraction\TestAction.cs" />
+    <Compile Include="src\main\cs\Data\ILog.cs" />
+    <Compile Include="src\main\cs\IO\IOOutput.cs" />
+    <Compile Include="src\main\cs\CommandLineInterpreter.cs" />
+    <Compile Include="src\main\cs\TestBridge.cs" />
+    <Compile Include="src\main\cs\Data\StdLog.cs" />
+    <Compile Include="src\main\cs\Abstraction\TestContext.cs" />
+    <Compile Include="src\main\cs\Abstraction\ITestComponent.cs" />
+    <Compile Include="src\main\cs\Abstraction\Delegates.cs" />
+    <Compile Include="src\main\cs\Abstraction\Requirement.cs" />
+    <Compile Include="src\main\cs\Abstraction\IInstantiationComponent.cs" />
+    <Compile Include="src\main\cs\Abstraction\AbstractInvokationAction.cs" />
+    <Compile Include="src\main\cs\Abstraction\Common\CommonInstantiationComponent.cs" />
+    <Compile Include="src\main\cs\TestException.cs" />
+    <Compile Include="src\main\cs\Abstraction\Common\CommonInvokationAction.cs" />
+    <Compile Include="src\main\cs\Abstraction\RunnerFactory.cs" />
+    <Compile Include="src\main\cs\Abstraction\ITestRunner.cs" />
+    <Compile Include="src\main\cs\Abstraction\ComponentResolver.cs" />
+    <Compile Include="src\main\cs\Abstraction\IStepFactory.cs" />
+    <Compile Include="src\main\cs\Data\ConsoleTestLog.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <None Include="pom.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="src\" />
+    <Folder Include="src\main\" />
+    <Folder Include="src\main\cs\" />
+    <Folder Include="src\test\" />
+    <Folder Include="src\test\cs\" />
+    <Folder Include="src\main\cs\Data\" />
+    <Folder Include="src\main\cs\IO\" />
+    <Folder Include="src\main\cs\NUnit\" />
+    <Folder Include="src\main\cs\Abstraction\" />
+    <Folder Include="src\main\cs\Abstraction\Common\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Xml" />
+    <Reference Include="nunit.framework">
+      <HintPath>nuget\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+</Project>
